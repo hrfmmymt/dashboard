@@ -1,0 +1,41 @@
+<!doctype html>
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <div class="wrapper">
+
+    <div class="navbar">
+      <div class="container">
+        <h1><a href="/">Dashboard</a></h1>
+      </div>
+    </div>
+
+    <div class="container form">
+      <h2>Edit</h2>
+      <form method="post" action="/<%= @jobs.id %>/edit">
+        <div class="form__wrap">
+          <label for="title">title</label>
+          <input type="text" name="title" id="title" required value="<%= @jobs.title %>">
+        </div>
+        <div class="form__wrap">
+          <label for="content_overview">content_overview</label>
+          <textarea rows="5" name="content_overview" id="content_overview"><%= @jobs.content_overview %></textarea>
+        </div>
+        <div class="form__wrap">
+          <label for="content_detail">content_detail</label>
+          <textarea rows="5" name="content_detail" id="content_detail"><%= @jobs.content_detail %></textarea>
+        </div>
+        <input type="hidden" name="" value="PUT">
+        <input type="submit" name="" value="UPDATE" class="form__submit">
+      </form>
+    </div>
+
+  </div>
+  <script src="/js/bundle.js"></script>
+</body>
+</html>
