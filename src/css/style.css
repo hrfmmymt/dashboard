@@ -137,6 +137,8 @@ h2 {
     text-align: center;
     cursor: pointer;
     transition: all .2s linear;
+    display: inline-block;
+    vertical-align: middle;
     &:hover {
       opacity: .8;
       margin-left: 1rem;

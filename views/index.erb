@@ -40,6 +40,8 @@
         <% @jobs.each do |jobs| %>
         <li class="jobs__list" data-id="<%= jobs.id %>">
           <div class="jobs__list__inner">
+            <h3>ID:</h3>
+            <p><%= h jobs.id %></p>
             <h3>Title:</h3>
             <p><%= h jobs.title %></p>
             <h3>Overview:</h3>
@@ -48,7 +50,7 @@
             <p><%= h jobs.content_detail %></p>
           </div>
           <button class="jobs__delete">DELETE</button>
-          <a href="/<%= jobs.id %>/edit">edit</a>
+          <a class="jobs__edit" href="/<%= jobs.id %>/edit">EDIT</a>
         </li>
         <% end %>
       </ul>

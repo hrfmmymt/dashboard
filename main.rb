@@ -35,13 +35,14 @@ get "/:id/edit" do
   erb :edit
 end
 
-put "/:id" do
+put "/:id/edit" do
   @jobs = Jobs.find(params[:id])
-  if @jobs.update_attributes(params[:jobs])
-    redirect "/id=#{@jobs.id}"
-  else
-    redirect "/"
-  end
+  @jobs.update({
+    :title => params[:title],
+    :content_overview => params[:content_overview],
+    :content_detail => params[:content_detail]
+  })
+  redirect "/"
 end
 
 get "/jobs.json" do

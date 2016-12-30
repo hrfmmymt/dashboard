@@ -18,6 +18,7 @@
     <div class="container form">
       <h2>Edit</h2>
       <form method="post" action="/<%= @jobs.id %>/edit">
+        <input type="hidden" name="_method" value="PUT">
         <div class="form__wrap">
           <label for="title">title</label>
           <input type="text" name="title" id="title" required value="<%= @jobs.title %>">
@@ -30,7 +31,6 @@
           <label for="content_detail">content_detail</label>
           <textarea rows="5" name="content_detail" id="content_detail"><%= @jobs.content_detail %></textarea>
         </div>
-        <input type="hidden" name="" value="PUT">
         <input type="submit" name="" value="UPDATE" class="form__submit">
       </form>
     </div>
