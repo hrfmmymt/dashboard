@@ -1,12 +1,11 @@
+# coding:utf-8
 require "sinatra"
 require "sinatra/reloader"
 require "active_record"
 require "json"
 
-ActiveRecord::Base.establish_connection(
-  "adapter" => "sqlite3",
-  "database" => "./jobs.db"
-)
+ActiveRecord::Base.configurations = YAML.load_file("database.yml")
+ActiveRecord::Base.establish_connection(ActiveRecord::Base.configurations["development"])
 
 helpers do
   include Rack::Utils
