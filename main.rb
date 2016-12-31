@@ -25,7 +25,10 @@ post "/new" do
   Jobs.create({
     :title => params[:title],
     :content_overview => params[:content_overview],
-    :content_detail => params[:content_detail]
+    :content_detail => params[:content_detail],
+    :device => params[:device],
+    :langs => params[:langs],
+    :tools => params[:tools]
   })
   redirect "/"
 end
@@ -40,7 +43,10 @@ put "/:id/edit" do
   @jobs.update({
     :title => params[:title],
     :content_overview => params[:content_overview],
-    :content_detail => params[:content_detail]
+    :content_detail => params[:content_detail],
+    :device => params[:device],
+    :langs => params[:langs],
+    :tools => params[:tools]
   })
   redirect "/"
 end

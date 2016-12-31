@@ -72,6 +72,10 @@ h2 {
   margin-bottom: 2rem;
 }
 
+h3 {
+  font-weight: normal;
+}
+
 .form {
   margin-bottom: 3rem;
   &__wrap {
@@ -143,5 +147,16 @@ h2 {
       opacity: .8;
       margin-left: 1rem;
     }
+  }
+}
+
+input[type="checkbox"] {
+  width: .8em;
+  display: inline-block;
+  vertical-align: middle;
+  & + label {
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 1em;
   }
 }

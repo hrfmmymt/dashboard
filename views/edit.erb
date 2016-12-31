@@ -1,5 +1,4 @@
 <!doctype html>
-<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -16,7 +15,7 @@
     </div>
 
     <div class="container form">
-      <h2>Edit</h2>
+      <h2>Edit <%= @jobs.title %></h2>
       <form method="post" action="/<%= @jobs.id %>/edit">
         <input type="hidden" name="_method" value="PUT">
         <div class="form__wrap">
@@ -30,6 +29,50 @@
         <div class="form__wrap">
           <label for="content_detail">content_detail</label>
           <textarea rows="5" name="content_detail" id="content_detail"><%= @jobs.content_detail %></textarea>
+        </div>
+        <div class="form__wrap">
+          <input type="checkbox" name="device[]" id="devicePc" value="pc">
+          <label for="devicePc">pc</label>
+          <input type="checkbox" name="device[]" id="deviceSp" value="sp">
+          <label for="deviceSp">sp</label>
+        </div>
+        <div class="form__wrap">
+          <h3>Languages</h3>
+          <input type="checkbox" name="langs[]" id="langHtml" value="HTML">
+          <label for="langHtml">HTML</label>
+          <input type="checkbox" name="langs[]" id="langCss" value="CSS">
+          <label for="langCss">CSS</label>
+          <input type="checkbox" name="langs[]" id="langJs" value="JavaScript">
+          <label for="langJs">JavaScript</label>
+          <input type="checkbox" name="langs[]" id="langPhp" value="PHP">
+          <label for="langPhp">PHP</label>
+        </div>
+        <div class="form__wrap">
+          <h3>Tools</h3>
+          <input type="checkbox" name="tools[]" id="toolSt" value="Subilme Text">
+          <label for="toolSt">Subilme Text</label>
+          <input type="checkbox" name="tools[]" id="toolVim" value="Vim">
+          <label for="toolVim">Vim</label>
+          <input type="checkbox" name="tools[]" id="toolDw" value="DreamWeaver">
+          <label for="toolDw">DreamWeaver</label>
+          <input type="checkbox" name="tools[]" id="toolEclipse" value="Eclipse">
+          <label for="toolEclipse">Eclipse</label>
+          <input type="checkbox" name="tools[]" id="toolPs" value="Photoshop">
+          <label for="toolPs">Photoshop</label>
+          <input type="checkbox" name="tools[]" id="toolIl" value="Illustrator">
+          <label for="toolIl">Illustrator</label>
+          <input type="checkbox" name="tools[]" id="toolFw" value="Fireworks">
+          <label for="toolFw">Fireworks</label>
+          <input type="checkbox" name="tools[]" id="toolFl" value="Flash">
+          <label for="toolFl">Flash</label>
+          <input type="checkbox" name="tools[]" id="toolSvn" value="Subversion">
+          <label for="toolSvn">Subversion</label>
+          <input type="checkbox" name="tools[]" id="toolGit" value="Git">
+          <label for="toolGit">Git</label>
+          <input type="checkbox" name="tools[]" id="toolWp" value="WordPress">
+          <label for="toolWp">WordPress</label>
+          <input type="checkbox" name="tools[]" id="toolRedmine" value="Redmine">
+          <label for="toolRedmine">Redmine</label>
         </div>
         <input type="submit" name="" value="UPDATE" class="form__submit">
       </form>
