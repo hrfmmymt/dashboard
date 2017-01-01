@@ -87,6 +87,13 @@
           <label for="toolRedmine">Redmine</label>
         </div>
 
+        <!-- 開発担当 -->
+        <div class="form__wrap">
+          <h3>Dev process</h3>
+          <input type="text" name="devs[]" id="dev01" value="">
+          <input type="text" name="devs[]" id="dev02" value="">
+        </div>
+
         <input type="submit" name="" value="POST" class="form__submit">
       </form>
     </div>
@@ -111,6 +118,8 @@
             <p><%= h jobs.langs %></p>
             <h3>Tools:</h3>
             <p><%= h jobs.tools %></p>
+            <h3>Dev process:</h3>
+            <p><%= h jobs.dev_process %></p>
           </div>
           <button class="jobs__delete">DELETE</button>
           <a class="jobs__edit" href="/<%= jobs.id %>/edit">EDIT</a>

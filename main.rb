@@ -27,7 +27,8 @@ post "/new" do
     :content_detail => params[:content_detail],
     :device => params[:device],
     :langs => params[:langs],
-    :tools => params[:tools]
+    :tools => params[:tools],
+    :dev_process => params[:devs]
   })
   redirect "/"
 end
