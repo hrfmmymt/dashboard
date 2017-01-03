@@ -18,24 +18,34 @@
       <h2>Edit <%= @jobs.title %></h2>
       <form method="post" action="/<%= @jobs.id %>/edit">
         <input type="hidden" name="_method" value="PUT">
+
+        <!-- タイトル -->
         <div class="form__wrap">
           <label for="title">title</label>
           <input type="text" name="title" id="title" required value="<%= @jobs.title %>">
         </div>
+
+        <!-- 概要 -->
         <div class="form__wrap">
           <label for="content_overview">content_overview</label>
           <textarea rows="5" name="content_overview" id="content_overview"><%= @jobs.content_overview %></textarea>
         </div>
+
+        <!-- 詳細 -->
         <div class="form__wrap">
           <label for="content_detail">content_detail</label>
           <textarea rows="5" name="content_detail" id="content_detail"><%= @jobs.content_detail %></textarea>
         </div>
+
+        <!-- 対応デバイス -->
         <div class="form__wrap">
           <input type="checkbox" name="device[]" id="devicePc" value="pc">
           <label for="devicePc">pc</label>
           <input type="checkbox" name="device[]" id="deviceSp" value="sp">
           <label for="deviceSp">sp</label>
         </div>
+
+        <!-- 使用言語 -->
         <div class="form__wrap">
           <h3>Languages</h3>
           <input type="checkbox" name="langs[]" id="langHtml" value="HTML">
@@ -47,6 +57,8 @@
           <input type="checkbox" name="langs[]" id="langPhp" value="PHP">
           <label for="langPhp">PHP</label>
         </div>
+
+        <!-- 使用ツール -->
         <div class="form__wrap">
           <h3>Tools</h3>
           <input type="checkbox" name="tools[]" id="toolSt" value="Subilme Text">
@@ -74,6 +86,16 @@
           <input type="checkbox" name="tools[]" id="toolRedmine" value="Redmine">
           <label for="toolRedmine">Redmine</label>
         </div>
+
+        <!-- 開発担当 -->
+        <div class="form__wrap">
+          <h3>Dev process</h3>
+          <input type="text" name="devs[]" id="dev01" value="<%= @jobs.dev_process %>" placeholder="e.g. デザイン / コーディング">
+          <input type="text" name="devs[]" id="dev02" value="<%= @jobs.dev_process[1] %>" placeholder="e.g. デザイン / コーディング">
+          <input type="text" name="devs[]" id="dev01" value="<%= @jobs.dev_process[2] %>" placeholder="e.g. デザイン / コーディング">
+          <input type="text" name="devs[]" id="dev02" value="<%= @jobs.dev_process[3] %>" placeholder="e.g. デザイン / コーディング">
+        </div>
+
         <input type="submit" name="" value="UPDATE" class="form__submit">
       </form>
     </div>

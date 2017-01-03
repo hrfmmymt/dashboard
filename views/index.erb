@@ -90,8 +90,16 @@
         <!-- 開発担当 -->
         <div class="form__wrap">
           <h3>Dev process</h3>
-          <input type="text" name="devs[]" id="dev01" value="">
-          <input type="text" name="devs[]" id="dev02" value="">
+          <input type="text" name="devs[]" id="dev01" value="" placeholder="e.g. デザイン / コーディング">
+          <input type="text" name="devs[]" id="dev02" value="" placeholder="e.g. デザイン / コーディング">
+          <input type="text" name="devs[]" id="dev01" value="" placeholder="e.g. デザイン / コーディング">
+          <input type="text" name="devs[]" id="dev02" value="" placeholder="e.g. デザイン / コーディング">
+        </div>
+
+        <!-- 期間 -->
+        <div class="form__wrap">
+          <h3>When</h3>
+          <% Time.now %>
         </div>
 
         <input type="submit" name="" value="POST" class="form__submit">
