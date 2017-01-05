@@ -1,4 +1,4 @@
+.bundle
+db/development.db
 node_modules
-vendor
-jobs.db
-.DS_Store
+vendor/bundle
