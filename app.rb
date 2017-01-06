@@ -15,6 +15,7 @@ class Jobs < ActiveRecord::Base
 end
 
 get "/" do
+  @title = "Dashboard"
   @jobs = Jobs.order("id desc").all
   erb :index
 end

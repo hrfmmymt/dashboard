@@ -1,142 +1,120 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>Dashboard</title>
-  <link rel="stylesheet" href="/css/style.css">
-</head>
-<body>
-  <div class="wrapper">
+<div class="container form">
+  <h2>Input</h2>
+  <form method="post" action="/new">
 
-    <div class="navbar">
-      <div class="container">
-        <h1><a href="/">Dashboard</a></h1>
+    <!-- タイトル -->
+    <div class="form__wrap">
+      <h3><label for="title">title</label></h3>
+      <input type="text" name="title" id="title" required>
+    </div>
+
+    <!-- 概要 -->
+    <div class="form__wrap">
+      <h3><label for="content_overview">content_overview</label></h3>
+      <textarea rows="5" name="content_overview" id="content_overview"></textarea>
+    </div>
+
+    <!-- 詳細 -->
+    <div class="form__wrap">
+      <h3><label for="content_detail">content_detail</label></h3>
+      <textarea rows="5" name="content_detail" id="content_detail"></textarea>
+    </div>
+
+    <!-- 対応デバイス -->
+    <div class="form__wrap">
+      <h3>Device</h3>
+      <input type="checkbox" name="device[]" id="devicePc" value="pc">
+      <label for="devicePc">pc</label>
+      <input type="checkbox" name="device[]" id="deviceSp" value="sp">
+      <label for="deviceSp">sp</label>
+    </div>
+
+    <!-- 使用言語 -->
+    <div class="form__wrap">
+      <h3>Languages</h3>
+      <input type="checkbox" name="langs[]" id="langHtml" value="HTML">
+      <label for="langHtml">HTML</label>
+      <input type="checkbox" name="langs[]" id="langCss" value="CSS">
+      <label for="langCss">CSS</label>
+      <input type="checkbox" name="langs[]" id="langJs" value="JavaScript">
+      <label for="langJs">JavaScript</label>
+      <input type="checkbox" name="langs[]" id="langPhp" value="PHP">
+      <label for="langPhp">PHP</label>
+    </div>
+
+    <!-- 使用ツール -->
+    <div class="form__wrap">
+      <h3>Tools</h3>
+      <input type="checkbox" name="tools[]" id="toolSt" value="Subilme Text">
+      <label for="toolSt">Subilme Text</label>
+      <input type="checkbox" name="tools[]" id="toolVim" value="Vim">
+      <label for="toolVim">Vim</label>
+      <input type="checkbox" name="tools[]" id="toolDw" value="DreamWeaver">
+      <label for="toolDw">DreamWeaver</label>
+      <input type="checkbox" name="tools[]" id="toolEclipse" value="Eclipse">
+      <label for="toolEclipse">Eclipse</label>
+      <input type="checkbox" name="tools[]" id="toolPs" value="Photoshop">
+      <label for="toolPs">Photoshop</label>
+      <input type="checkbox" name="tools[]" id="toolIl" value="Illustrator">
+      <label for="toolIl">Illustrator</label>
+      <input type="checkbox" name="tools[]" id="toolFw" value="Fireworks">
+      <label for="toolFw">Fireworks</label>
+      <input type="checkbox" name="tools[]" id="toolFl" value="Flash">
+      <label for="toolFl">Flash</label>
+      <input type="checkbox" name="tools[]" id="toolSvn" value="Subversion">
+      <label for="toolSvn">Subversion</label>
+      <input type="checkbox" name="tools[]" id="toolGit" value="Git">
+      <label for="toolGit">Git</label>
+      <input type="checkbox" name="tools[]" id="toolWp" value="WordPress">
+      <label for="toolWp">WordPress</label>
+      <input type="checkbox" name="tools[]" id="toolRedmine" value="Redmine">
+      <label for="toolRedmine">Redmine</label>
+    </div>
+
+    <!-- 開発担当 -->
+    <div class="form__wrap">
+      <h3>Dev process</h3>
+      <input type="text" name="devs[]" id="dev01" value="" placeholder="e.g. デザイン / コーディング">
+      <input type="text" name="devs[]" id="dev02" value="" placeholder="e.g. デザイン / コーディング">
+      <input type="text" name="devs[]" id="dev01" value="" placeholder="e.g. デザイン / コーディング">
+      <input type="text" name="devs[]" id="dev02" value="" placeholder="e.g. デザイン / コーディング">
+    </div>
+
+    <!-- 期間 -->
+    <div class="form__wrap">
+      <h3>When</h3>
+    </div>
+
+    <input type="submit" name="" value="POST" class="form__submit">
+  </form>
+</div>
+
+<div class="container data">
+  <h2>Output</h2>
+  <ul class="jobs">
+    <% @jobs.each do |jobs| %>
+    <li class="jobs__list" data-id="<%= jobs.id %>">
+      <div class="jobs__list__inner">
+        <h3>ID:</h3>
+        <p><%= h jobs.id %></p>
+        <h3>Title:</h3>
+        <p><%= h jobs.title %></p>
+        <h3>Overview:</h3>
+        <p><%= h jobs.content_overview %></p>
+        <h3>Detail:</h3>
+        <p><%= h jobs.content_detail %></p>
+        <h3>Device:</h3>
+        <p><%= h jobs.device %></p>
+        <h3>Languages:</h3>
+        <p><%= h jobs.langs %></p>
+        <h3>Tools:</h3>
+        <p><%= h jobs.tools %></p>
+        <h3>Dev process:</h3>
+        <p><%= h jobs.dev_process %></p>
       </div>
-    </div>
-
-    <div class="container form">
-      <h2>Input</h2>
-      <form method="post" action="/new">
-
-        <!-- タイトル -->
-        <div class="form__wrap">
-          <h3><label for="title">title</label></h3>
-          <input type="text" name="title" id="title" required>
-        </div>
-
-        <!-- 概要 -->
-        <div class="form__wrap">
-          <h3><label for="content_overview">content_overview</label></h3>
-          <textarea rows="5" name="content_overview" id="content_overview"></textarea>
-        </div>
-
-        <!-- 詳細 -->
-        <div class="form__wrap">
-          <h3><label for="content_detail">content_detail</label></h3>
-          <textarea rows="5" name="content_detail" id="content_detail"></textarea>
-        </div>
-
-        <!-- 対応デバイス -->
-        <div class="form__wrap">
-          <h3>Device</h3>
-          <input type="checkbox" name="device[]" id="devicePc" value="pc">
-          <label for="devicePc">pc</label>
-          <input type="checkbox" name="device[]" id="deviceSp" value="sp">
-          <label for="deviceSp">sp</label>
-        </div>
-
-        <!-- 使用言語 -->
-        <div class="form__wrap">
-          <h3>Languages</h3>
-          <input type="checkbox" name="langs[]" id="langHtml" value="HTML">
-          <label for="langHtml">HTML</label>
-          <input type="checkbox" name="langs[]" id="langCss" value="CSS">
-          <label for="langCss">CSS</label>
-          <input type="checkbox" name="langs[]" id="langJs" value="JavaScript">
-          <label for="langJs">JavaScript</label>
-          <input type="checkbox" name="langs[]" id="langPhp" value="PHP">
-          <label for="langPhp">PHP</label>
-        </div>
-
-        <!-- 使用ツール -->
-        <div class="form__wrap">
-          <h3>Tools</h3>
-          <input type="checkbox" name="tools[]" id="toolSt" value="Subilme Text">
-          <label for="toolSt">Subilme Text</label>
-          <input type="checkbox" name="tools[]" id="toolVim" value="Vim">
-          <label for="toolVim">Vim</label>
-          <input type="checkbox" name="tools[]" id="toolDw" value="DreamWeaver">
-          <label for="toolDw">DreamWeaver</label>
-          <input type="checkbox" name="tools[]" id="toolEclipse" value="Eclipse">
-          <label for="toolEclipse">Eclipse</label>
-          <input type="checkbox" name="tools[]" id="toolPs" value="Photoshop">
-          <label for="toolPs">Photoshop</label>
-          <input type="checkbox" name="tools[]" id="toolIl" value="Illustrator">
-          <label for="toolIl">Illustrator</label>
-          <input type="checkbox" name="tools[]" id="toolFw" value="Fireworks">
-          <label for="toolFw">Fireworks</label>
-          <input type="checkbox" name="tools[]" id="toolFl" value="Flash">
-          <label for="toolFl">Flash</label>
-          <input type="checkbox" name="tools[]" id="toolSvn" value="Subversion">
-          <label for="toolSvn">Subversion</label>
-          <input type="checkbox" name="tools[]" id="toolGit" value="Git">
-          <label for="toolGit">Git</label>
-          <input type="checkbox" name="tools[]" id="toolWp" value="WordPress">
-          <label for="toolWp">WordPress</label>
-          <input type="checkbox" name="tools[]" id="toolRedmine" value="Redmine">
-          <label for="toolRedmine">Redmine</label>
-        </div>
-
-        <!-- 開発担当 -->
-        <div class="form__wrap">
-          <h3>Dev process</h3>
-          <input type="text" name="devs[]" id="dev01" value="" placeholder="e.g. デザイン / コーディング">
-          <input type="text" name="devs[]" id="dev02" value="" placeholder="e.g. デザイン / コーディング">
-          <input type="text" name="devs[]" id="dev01" value="" placeholder="e.g. デザイン / コーディング">
-          <input type="text" name="devs[]" id="dev02" value="" placeholder="e.g. デザイン / コーディング">
-        </div>
-
-        <!-- 期間 -->
-        <div class="form__wrap">
-          <h3>When</h3>
-          <% Time.now %>
-        </div>
-
-        <input type="submit" name="" value="POST" class="form__submit">
-      </form>
-    </div>
-
-    <div class="container data">
-      <h2>Output</h2>
-      <ul class="jobs">
-        <% @jobs.each do |jobs| %>
-        <li class="jobs__list" data-id="<%= jobs.id %>">
-          <div class="jobs__list__inner">
-            <h3>ID:</h3>
-            <p><%= h jobs.id %></p>
-            <h3>Title:</h3>
-            <p><%= h jobs.title %></p>
-            <h3>Overview:</h3>
-            <p><%= h jobs.content_overview %></p>
-            <h3>Detail:</h3>
-            <p><%= h jobs.content_detail %></p>
-            <h3>Device:</h3>
-            <p><%= h jobs.device %></p>
-            <h3>Languages:</h3>
-            <p><%= h jobs.langs %></p>
-            <h3>Tools:</h3>
-            <p><%= h jobs.tools %></p>
-            <h3>Dev process:</h3>
-            <p><%= h jobs.dev_process %></p>
-          </div>
-          <button class="jobs__delete">DELETE</button>
-          <a class="jobs__edit" href="/<%= jobs.id %>/edit">EDIT</a>
-        </li>
-        <% end %>
-      </ul>
-    </div>
-
-  </div>
-  <script src="/js/bundle.js"></script>
-</body>
-</html>
+      <button class="jobs__delete">DELETE</button>
+      <a class="jobs__edit" href="/<%= jobs.id %>/edit">EDIT</a>
+    </li>
+    <% end %>
+  </ul>
+</div>
