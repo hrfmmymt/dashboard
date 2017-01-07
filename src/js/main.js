@@ -1,21 +1,24 @@
 "use strict";
 
-var $ = require("jQuery");
+const request = require("superagent");
 
-$(function() {
-  $(".jobs__delete").on("click", function() {
-    const el = $(this).parent();
-    if(confirm("delete?")) {
-      $.ajax({
-        type: "POST",
-        url: "/delete",
-        data: {
-          id: el.data("id")
-        },
-        success: function() {
-          el.remove();
+const btn = document.getElementsByClassName("jobs__delete");
+
+const deleteData = function() {
+  const el = this.parentNode;
+  if(confirm("delete?")) {
+    request.post("/delete")
+      .send({id: el.getAttribute("data-id")})
+      .type("form")
+      .end(function(err, res) {
+        if(err) {
+          console.log("error");
+        } else {
+          el.parentNode.removeChild(el);
         }
-      });
-    }
-  });
+      })
+  }
+};
+Array.from(btn).forEach(function(el) {
+  el.addEventListener("click", deleteData);
 });
